@@ -53,6 +53,10 @@ public class Hooks : MonoBehaviour {
                     }
                 }
             }
+
+            if (child.position.x < 10) {
+
+            }
         }
     }
 }

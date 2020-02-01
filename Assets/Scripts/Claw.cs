@@ -23,6 +23,7 @@ public class Claw : MonoBehaviour {
         transform.position = target;
 
         // Grab body part
+        Debug.DrawRay(claw.transform.position, Vector3.forward * 5.0f, Color.red);
         if (Input.GetMouseButtonDown(0)) {
             RaycastHit hit;
             if (Physics.Raycast(claw.transform.position, Vector3.forward, out hit, 5.0f)) {
