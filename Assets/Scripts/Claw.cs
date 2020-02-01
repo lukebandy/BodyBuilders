@@ -30,7 +30,6 @@ public class Claw : MonoBehaviour {
                 if (hit.transform.CompareTag("BodyPart")) {
                     holding = hit.transform.GetComponent<Rigidbody>();
                     holding.GetComponent<Collider>().enabled = false;
-                    holding.angularVelocity = Vector3.zero;
                 }
             }
         }
@@ -44,7 +43,7 @@ public class Claw : MonoBehaviour {
                 holding.velocity = Vector3.zero;
                 holding.transform.parent = hit.transform;
                 holding.transform.localPosition = new Vector3(0, 0, 0);
-                holding.transform.localRotation = Quaternion.Euler(0, 180, 0);
+                holding.transform.localRotation = Quaternion.Euler(Vector3.zero);
                 // Increase the score if the part is correctly placed
                 if (holding.name.Split('(')[0] == hit.transform.name) {
                     GameController.gameScore++;

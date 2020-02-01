@@ -17,7 +17,7 @@ public class Hooks : MonoBehaviour {
     }
 
     private void Awake() {
-        Instantiate(template, new Vector3(14, 5, 3), Quaternion.Euler(Vector3.zero), transform);
+        Instantiate(template, new Vector3(10, 7, 3), Quaternion.Euler(Vector3.zero), transform);
         spawnWaited = 0;
     }
 
@@ -26,7 +26,7 @@ public class Hooks : MonoBehaviour {
         spawnWaited += Time.deltaTime;
 
         if (spawnWaited >= spawnWait) {
-            Instantiate(template, new Vector3(14, 5, 3), Quaternion.Euler(Vector3.zero), transform);
+            Instantiate(template, new Vector3(10, 7, 3), Quaternion.Euler(Vector3.zero), transform);
             spawnWaited = 0;
         }
 
@@ -52,19 +52,10 @@ public class Hooks : MonoBehaviour {
                         }
                     }
                 }
-                else {
-                    int correct = 0;
-                    foreach (Transform bodypart in child) {
-                        if (bodypart.childCount > 0) { 
-                            if (bodypart.name == bodypart.GetChild(0).name.Split('(')[0])
-                                correct++;
-                            bodypart.GetChild(0).name = "Counted";
-                        }
-                    }
-                    if (correct == 6)
-                        correct += 4;
-                    GameController.gameScore += correct;
-                }
+            }
+
+            if (child.position.x < 10) {
+
             }
         }
     }
