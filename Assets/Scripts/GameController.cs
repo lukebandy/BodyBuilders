@@ -20,7 +20,6 @@ public class GameController : MonoBehaviour {
     Belt[] belts;
 
     public AudioSource audioSourceSoundtrack;
-    public AudioSource audioSourceVoiceover;
 
     bool gameAccessible;
     private int[] gameScoreRecords;
@@ -94,8 +93,6 @@ public class GameController : MonoBehaviour {
         hooks.gameObject.SetActive(true);
 
         gameTimeremaining = 120.0f;
-
-        audioSourceVoiceover.Play();
     }
 }
  
