@@ -16,16 +16,11 @@ public class Claw : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         // Claw position
-        transform.position += new Vector3(Input.GetAxis("Mouse X") * 1.0f, Input.GetAxis("Mouse Y") * 1.0f, 0);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -10, 10), Mathf.Clamp(transform.position.y, 0, 13), transform.position.z);
-
-        // Lock cursor
-        if (Input.GetMouseButton(0) && holding != null) {
-            Cursor.lockState = CursorLockMode.Locked;
-            Debug.DrawRay(holding.transform.position, Vector3.forward * 10, Color.red);
-        }
-        else
-            Cursor.lockState = CursorLockMode.None;
+        Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        target.x = Mathf.Clamp(target.x, -11, 11);
+        target.y = Mathf.Clamp(target.y, -2.5f, 8.3f);
+        target.z = transform.position.z;
+        transform.position = target;
 
         // Grab body part
         if (Input.GetMouseButtonDown(0)) {

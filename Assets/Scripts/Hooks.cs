@@ -32,15 +32,24 @@ public class Hooks : MonoBehaviour {
 
         foreach (Transform child in transform) {
             child.position += Vector3.left * Time.deltaTime * speed;
+            // When the template is at the end of the rail
             if (child.position.x < -8) {
-                foreach (Transform bodypart in child) {
-                    if (bodypart.name != "Body" && bodypart.childCount == 1) {
-                        bodypart.GetChild(0).GetComponent<Collider>().enabled = true;
-                        bodypart.GetChild(0).GetComponent<Rigidbody>().useGravity = true;
-                        bodypart.GetChild(0).GetComponent<Rigidbody>().velocity = Vector3.zero;
-                        bodypart.GetChild(0).transform.position = new Vector3(bodypart.GetChild(0).transform.position.x,
-                            bodypart.GetChild(0).transform.position.y, -2.5f);
-                        bodypart.GetChild(0).parent = bodypartFolder;
+                // Count how many body parts have been added to the template
+                int count = 0;
+                foreach(Transform bodypart in child) {
+                    count += bodypart.childCount;
+                }
+                // If the body hasn't been completed, drop all the parts
+                if (count < 6) {
+                    foreach (Transform bodypart in child) {
+                        if (bodypart.name != "Body" && bodypart.childCount == 1) {
+                            bodypart.GetChild(0).GetComponent<Collider>().enabled = true;
+                            bodypart.GetChild(0).GetComponent<Rigidbody>().useGravity = true;
+                            bodypart.GetChild(0).GetComponent<Rigidbody>().velocity = Vector3.zero;
+                            bodypart.GetChild(0).transform.position = new Vector3(bodypart.GetChild(0).transform.position.x,
+                                bodypart.GetChild(0).transform.position.y, -2.5f);
+                            bodypart.GetChild(0).parent = bodypartFolder;
+                        }
                     }
                 }
             }
