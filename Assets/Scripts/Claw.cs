@@ -7,10 +7,11 @@ public class Claw : MonoBehaviour {
     public GameObject claw;
     Rigidbody holding;
     int score;
+    Collider collider;
 
     // Start is called before the first frame update
     void Start() {
-        
+        collider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -23,15 +24,12 @@ public class Claw : MonoBehaviour {
         transform.position = target;
 
         // Grab body part
-        Debug.DrawRay(claw.transform.position, Vector3.forward * 5.0f, Color.red);
         if (Input.GetMouseButtonDown(0)) {
-            RaycastHit hit;
-            if (Physics.Raycast(claw.transform.position, Vector3.forward, out hit, 5.0f)) {
-                if (hit.transform.CompareTag("BodyPart")) {
-                    holding = hit.transform.GetComponent<Rigidbody>();
-                    holding.GetComponent<Collider>().enabled = false;
-                    holding.angularVelocity = Vector3.zero;
-                }
+            Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, new Vector3(1, 1, 5)/2, Quaternion.identity, 1 << 8);
+            if (hitColliders.Length > 0) {
+                holding = hitColliders[0].transform.GetComponent<Rigidbody>();
+                holding.GetComponent<Collider>().enabled = false;
+                holding.angularVelocity = Vector3.zero;
             }
         }
         // Drop body part
@@ -63,5 +61,10 @@ public class Claw : MonoBehaviour {
         if (holding != null) {
             holding.transform.position = new Vector3(claw.transform.position.x, claw.transform.position.y, holding.transform.position.z);
         }
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, new Vector3(1, 1, 5));
     }
 }
