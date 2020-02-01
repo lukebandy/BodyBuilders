@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour {
 
-    public GameObject claw;
     Rigidbody holding;
-    int score;
+    public GameObject closed;
+    public GameObject open;
 
     // Start is called before the first frame update
     void Start() {
@@ -22,16 +22,17 @@ public class Claw : MonoBehaviour {
         target.z = transform.position.z;
         transform.position = target;
 
+        // Animate
+        closed.SetActive(Input.GetMouseButton(0));
+        open.SetActive(!Input.GetMouseButton(0));
+
         // Grab body part
-        Debug.DrawRay(claw.transform.position, Vector3.forward * 5.0f, Color.red);
         if (Input.GetMouseButtonDown(0)) {
-            RaycastHit hit;
-            if (Physics.Raycast(claw.transform.position, Vector3.forward, out hit, 5.0f)) {
-                if (hit.transform.CompareTag("BodyPart")) {
-                    holding = hit.transform.GetComponent<Rigidbody>();
-                    holding.GetComponent<Collider>().enabled = false;
-                    holding.angularVelocity = Vector3.zero;
-                }
+            Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, new Vector3(1, 1, 5)/2, Quaternion.identity, 1 << 8);
+            if (hitColliders.Length > 0) {
+                holding = hitColliders[0].transform.GetComponent<Rigidbody>();
+                holding.GetComponent<Collider>().enabled = false;
+                holding.angularVelocity = Vector3.zero;
             }
         }
         // Drop body part
@@ -61,7 +62,12 @@ public class Claw : MonoBehaviour {
 
         // If holding a body part, move it with the claw
         if (holding != null) {
-            holding.transform.position = new Vector3(claw.transform.position.x, claw.transform.position.y, holding.transform.position.z);
+            holding.transform.position = new Vector3(transform.position.x, transform.position.y, holding.transform.position.z);
         }
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, new Vector3(1, 1, 5));
     }
 }
