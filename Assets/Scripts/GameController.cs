@@ -19,7 +19,9 @@ public class GameController : MonoBehaviour {
     public Spawner spawner;
     Belt[] belts;
 
-    AudioSource audioSource;
+    public AudioSource audioSourceSoundtrack;
+    public AudioSource audioSourceVoiceover;
+
     bool gameAccessible;
     private int[] gameScoreRecords;
 
@@ -27,7 +29,6 @@ public class GameController : MonoBehaviour {
     void Start() {
         belts = FindObjectsOfType<Belt>();
         gameScoreRecords = new int[3];
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,7 +51,7 @@ public class GameController : MonoBehaviour {
                     belt.speed = 7.0f - (gameTimeremaining / 20.0f);
 
                 if (!gameAccessible) 
-                    audioSource.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / 120.0f)), 0.0f, 0.5f);
+                    audioSourceSoundtrack.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / 120.0f)), 0.0f, 0.5f);
 
                 uiScreenGameDetails.text = "ETA until Earth: " + 
                     Mathf.RoundToInt(gameTimeremaining).ToString() + " seconds\nScore: " + gameScore.ToString();
@@ -79,7 +80,7 @@ public class GameController : MonoBehaviour {
                 spawner.gameObject.SetActive(false);
                 foreach (Transform template in hooks.transform )
                     Destroy(template.gameObject);
-                audioSource.pitch = 1.0f;
+                audioSourceSoundtrack.pitch = 1.0f;
             }
         }
     }
@@ -93,6 +94,8 @@ public class GameController : MonoBehaviour {
         hooks.gameObject.SetActive(true);
 
         gameTimeremaining = 120.0f;
+
+        audioSourceVoiceover.Play();
     }
 }
  
