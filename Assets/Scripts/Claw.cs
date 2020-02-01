@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour {
 
-    public GameObject claw;
     Rigidbody holding;
-    int score;
-    Collider collider;
+    public GameObject closed;
+    public GameObject open;
 
     // Start is called before the first frame update
     void Start() {
-        collider = GetComponent<Collider>();
+        
     }
 
     // Update is called once per frame
@@ -22,6 +21,10 @@ public class Claw : MonoBehaviour {
         target.y = Mathf.Clamp(target.y, -2.5f, 8.3f);
         target.z = transform.position.z;
         transform.position = target;
+
+        // Animate
+        closed.SetActive(Input.GetMouseButton(0));
+        open.SetActive(!Input.GetMouseButton(0));
 
         // Grab body part
         if (Input.GetMouseButtonDown(0)) {
@@ -59,7 +62,7 @@ public class Claw : MonoBehaviour {
 
         // If holding a body part, move it with the claw
         if (holding != null) {
-            holding.transform.position = new Vector3(claw.transform.position.x, claw.transform.position.y, holding.transform.position.z);
+            holding.transform.position = new Vector3(transform.position.x, transform.position.y, holding.transform.position.z);
         }
     }
 
