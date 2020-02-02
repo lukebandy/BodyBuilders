@@ -13,14 +13,18 @@ public class Claw : MonoBehaviour {
         
     }
 
-    // Update is called once per frame
-    void Update() {
-        // Claw position
+    public void Move() {
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target.x = Mathf.Clamp(target.x, -11, 11);
         target.y = Mathf.Clamp(target.y, -2.5f, 8.3f);
         target.z = transform.position.z;
         transform.position = target;
+    }
+
+    // Update is called once per frame
+    void Update() {
+        // Claw position
+        Move();
 
         // Animate
         closed.SetActive(Input.GetMouseButton(0));
