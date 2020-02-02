@@ -103,6 +103,7 @@ public class GameController : MonoBehaviour {
                         Destroy(bodypart.gameObject);
                     hooks.gameObject.SetActive(false);
                     audioSourceSoundtrack.pitch = 1.0f;
+                    backgroundEarth.gameObject.transform.localScale = new Vector3(0.025f, 0.025f, 0.025f);
                 }
                 // Reset game UI when it's animation is done
                 if (!outroScene.GetComponent<Animation>().enabled) {
