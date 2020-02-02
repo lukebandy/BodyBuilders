@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour {
     public Transform outroBodies;
 
     public GameObject claw;
+    public GameObject backgroundEarth;
     public Hooks hooks;
     public Spawner spawner;
     Belt[] belts;
@@ -78,6 +79,8 @@ public class GameController : MonoBehaviour {
                     belt.speed = 7.0f - (gameTimeremaining / 20.0f);
                 foreach (CogRotation cogRotation in cogs)
                     cogRotation.rotateSpeed = 600.0f - (300.0f * (gameTimeremaining / gameTimeLength));
+                float earthSize = (1 / ((gameTimeremaining / gameTimeLength) + 0.9f)) - 0.5f;
+                backgroundEarth.gameObject.transform.localScale = new Vector3(earthSize, earthSize, earthSize);
 
                 if (!gameAccessible) 
                     audioSourceSoundtrack.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / gameTimeLength)), 0.0f, 0.5f);
