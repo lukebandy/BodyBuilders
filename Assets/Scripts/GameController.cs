@@ -11,9 +11,11 @@ public class GameController : MonoBehaviour {
     public Canvas uiScreenGame;
     public TextMeshProUGUI uiScreenGameDetails;
     public TextMeshProUGUI uiScreenTitleHighscores;
+    public Image uiScreenOutro;
 
     public float gameTimeremaining;
     public static int gameScore;
+    public Transform bodypartFolder;
 
     public GameObject claw;
     public Hooks hooks;
@@ -23,7 +25,7 @@ public class GameController : MonoBehaviour {
 
     public AudioSource audioSourceSoundtrack;
 
-    bool gameAccessible;
+    public bool gameAccessible;
     private int[] gameScoreRecords;
 
     // Start is called before the first frame update
@@ -69,14 +71,20 @@ public class GameController : MonoBehaviour {
                     Mathf.RoundToInt(gameTimeremaining).ToString() + " seconds";//\nScore: " + gameScore.ToString();
             }
             else {
-                // Reset game
-                claw.SetActive(false);
-                spawner.gameObject.SetActive(false);
-                foreach (Transform template in hooks.transform )
-                    Destroy(template.gameObject);
-                audioSourceSoundtrack.pitch = 1.0f;
+                if (uiScreenOutro.color.a == 1) {
+                    // Reset game
+                    claw.SetActive(false);
+                    spawner.gameObject.SetActive(false);
+                    foreach (Transform template in hooks.transform)
+                        Destroy(template.gameObject);
+                    foreach (Transform bodypart in bodypartFolder)
+                        Destroy(bodypart.gameObject);
+                    audioSourceSoundtrack.pitch = 1.0f;
+                    uiScreenTitle.gameObject.SetActive(true);
+                }
             }
         }
+        Debug.Log(uiScreenOutro.color.a);
     }
 
     public void UIStart() {
@@ -89,6 +97,10 @@ public class GameController : MonoBehaviour {
         hooks.gameObject.SetActive(true);
 
         gameTimeremaining = 120.0f;
+    }
+
+    public void SetAccessability(bool value) {
+        gameAccessible = value;
     }
 }
  
