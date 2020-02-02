@@ -1,21 +1,23 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cog : MonoBehaviour {
-    public bool reverse;
-    public float speed;
-
-    // Start is called before the first frame update
-    void Start() {
-        
+public class Cog : MonoBehaviour
+{
+    public float rotateSpeed; //set it in the  inspector
+    public bool rotateClockwise = true;
+ 
+    void Update () {
+        rotate();
     }
-
-    // Update is called once per frame
-    void Update() {
-        if (!reverse)
-            transform.Rotate(Vector3.forward, Time.deltaTime * speed);
-        else
-            transform.Rotate(Vector3.forward, Time.deltaTime * -speed);
+ 
+ 
+    void rotate() {
+        float direction = 1;
+        if (!rotateClockwise)
+		{
+            direction = -1;
+        }
+        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime * direction);
     }
 }

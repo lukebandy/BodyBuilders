@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         foreach (Cog cog in cogs)
-            cog.speed = 20.0f;
+            cog.rotateSpeed = 20.0f;
 
         if (uiScreenTitle.gameObject.activeInHierarchy) {
             string highscores = "1) " + gameScoreRecords[0].ToString() + "\n2) " +
@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour {
                 foreach (Belt belt in belts)
                     belt.speed = 7.0f - (gameTimeremaining / 20.0f);
                 foreach (Cog cog in cogs)
-                    cog.speed = 20.0f;
+                    cog.rotateSpeed = 20.0f;
 
                 if (!gameAccessible) 
                     audioSourceSoundtrack.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / 120.0f)), 0.0f, 0.5f);
