@@ -6,6 +6,7 @@ using TMPro;
 
 public class GameController : MonoBehaviour {
 
+    public Canvas uiScreenIntro;
     public Canvas uiScreenTitle;
     public Canvas uiScreenGame;
     public TextMeshProUGUI uiScreenGameDetails;
@@ -34,6 +35,11 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Input.GetKeyDown("space")) {
+            GetComponent<Animation>().Stop();
+            uiScreenIntro.gameObject.SetActive(false);
+        }
+
         foreach (Cog cog in cogs)
             cog.rotateSpeed = 20.0f;
 
@@ -77,6 +83,7 @@ public class GameController : MonoBehaviour {
         uiScreenTitle.gameObject.SetActive(false);
         uiScreenGame.gameObject.SetActive(true);
 
+        claw.GetComponent<Claw>().Move();
         claw.SetActive(true);
         spawner.gameObject.SetActive(true);
         hooks.gameObject.SetActive(true);
