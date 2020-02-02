@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
     public float gameTimeremaining;
     public static int gameScore;
     public Transform bodypartFolder;
+    private float gameTimeLength = 90.0f;
 
     public GameObject claw;
     public Hooks hooks;
@@ -67,18 +68,18 @@ public class GameController : MonoBehaviour {
             gameTimeremaining -= Time.deltaTime;
             // CORE GAME LOOP
             if (gameTimeremaining > 0) {
-                hooks.spawnWait = 3.0f + (17.0f * (gameTimeremaining / 120.0f));
-                hooks.speed = 2.5f - (1.9f * (gameTimeremaining / 120.0f));
-                spawner.spawnWait = 1.0f + (1.0f * (gameTimeremaining / 120.0f));
+                hooks.spawnWait = 3.0f + (17.0f * (gameTimeremaining / gameTimeLength));
+                hooks.speed = 2.5f - (1.9f * (gameTimeremaining / gameTimeLength));
+                spawner.spawnWait = 0.7f + (0.8f * (gameTimeremaining / gameTimeLength));
                 foreach (Belt belt in belts)
                     belt.speed = 7.0f - (gameTimeremaining / 20.0f);
                 foreach (CogRotation cogRotation in cogs)
-                    cogRotation.rotateSpeed = 600.0f - (300.0f * (gameTimeremaining / 120.0f));
+                    cogRotation.rotateSpeed = 600.0f - (300.0f * (gameTimeremaining / gameTimeLength));
 
                 if (!gameAccessible) 
-                    audioSourceSoundtrack.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / 120.0f)), 0.0f, 0.5f);
+                    audioSourceSoundtrack.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / gameTimeLength)), 0.0f, 0.5f);
 
-                uiScreenGameDetails.text = "ETA until Earth: " +
+                uiScreenGameDetails.text = "Arriving at Eath in: " +
                     Mathf.RoundToInt(gameTimeremaining).ToString() + " seconds";//\nScore: " + gameScore.ToString();
             }
             // When game has finished
@@ -112,11 +113,15 @@ public class GameController : MonoBehaviour {
         spawner.gameObject.SetActive(true);
         hooks.gameObject.SetActive(true);
 
-        gameTimeremaining = 120.0f;
+        gameTimeremaining = gameTimeLength;
     }
 
     public void SetAccessability(bool value) {
         gameAccessible = value;
+    }
+
+    public void UIQuit() {
+        Application.Quit();
     }
 }
  
