@@ -16,7 +16,7 @@ public class Hooks : MonoBehaviour {
         
     }
 
-    private void Awake() {
+    private void OnEnable() {
         Instantiate(template, new Vector3(14, 5, 3), Quaternion.Euler(Vector3.zero), transform);
         spawnWaited = 0;
     }
