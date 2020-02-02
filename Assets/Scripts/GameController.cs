@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour {
                 if (!gameAccessible) 
                     audioSourceSoundtrack.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / 120.0f)), 0.0f, 0.5f);
 
-                uiScreenGameDetails.text = "ETA until Earth: " +
+                uiScreenGameDetails.text = "Arriving at Eath in: " +
                     Mathf.RoundToInt(gameTimeremaining).ToString() + " seconds";//\nScore: " + gameScore.ToString();
             }
             // When game has finished
@@ -117,6 +117,10 @@ public class GameController : MonoBehaviour {
 
     public void SetAccessability(bool value) {
         gameAccessible = value;
+    }
+
+    public void UIQuit() {
+        Application.Quit();
     }
 }
  
