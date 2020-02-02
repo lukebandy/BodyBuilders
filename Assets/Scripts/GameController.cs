@@ -75,8 +75,8 @@ public class GameController : MonoBehaviour {
             // CORE GAME LOOP
             if (gameTimeremaining > 0) {
                 hooks.spawnWait = 3.0f + (17.0f * (gameTimeremaining / gameTimeLength));
-                hooks.speed = 2.5f - (1.9f * (gameTimeremaining / gameTimeLength));
-                spawner.spawnWait = 0.5f + (1.0f * (gameTimeremaining / gameTimeLength));
+                hooks.speed = 2.2f - (1.9f * (gameTimeremaining / gameTimeLength));
+                spawner.spawnWait = 0.7f + (0.8f * (gameTimeremaining / gameTimeLength));
                 foreach (Belt belt in belts)
                     belt.speed = 7.0f - (gameTimeremaining / 20.0f);
                 foreach (CogRotation cogRotation in cogs)
