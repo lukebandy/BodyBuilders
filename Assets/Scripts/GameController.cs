@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour {
         // Scale background plane to 
         float height = Camera.main.orthographicSize * 2.0f;
         float width = height * Screen.width / Screen.height;
-        gameBackground.localScale = new Vector3(width / 10.0f, 1, height / 10.0f);
+        gameBackground.localScale = new Vector3((width / 10.0f)/1.8f, (height / 10.0f), 1);
         outroScene.transform.localScale = new Vector3(width / 10.0f, 1, height / 10.0f);
 
         // Default cog speed
