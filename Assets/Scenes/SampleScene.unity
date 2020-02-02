@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1001 &104266144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1 &130695817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1001 &624976378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1863,7 +1863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1 &636509210
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,7 +2186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1 &698953739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,7 +2388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1 &703677994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3483051328485856435, guid: 5c14a9280d19741a2b1960d3596cc1c1,
@@ -2580,7 +2580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1001 &744234237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3069,7 +3069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1 &937055732
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,7 +3380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1001 &1098117540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3475,7 +3475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1 &1108567942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4987,7 +4987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1 &1676202457
 GameObject:
   m_ObjectHideFlags: 0
@@ -5730,7 +5730,7 @@ Transform:
   m_GameObject: {fileID: 1963718104}
   m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
   m_LocalPosition: {x: 0, y: 2.38, z: 0}
-  m_LocalScale: {x: 1.8, y: 21.45, z: 1.62}
+  m_LocalScale: {x: 1.8, y: 21.45, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -6208,7 +6208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0
-  rotateClockwise: 1
+  rotateClockwise: 0
 --- !u!1 &2012762204
 GameObject:
   m_ObjectHideFlags: 0
