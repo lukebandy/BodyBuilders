@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
     public Hooks hooks;
     public Spawner spawner;
     Belt[] belts;
-    Cog[] cogs;
+    CogRotation[] cogs;
 
     public AudioSource audioSourceSoundtrack;
 
@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         belts = FindObjectsOfType<Belt>();
-        cogs = FindObjectsOfType<Cog>();
+        cogs = FindObjectsOfType<CogRotation>();
         gameScoreRecords = new int[3];
     }
 
@@ -50,8 +50,8 @@ public class GameController : MonoBehaviour {
         gameBackground.localScale = new Vector3(width / 10.0f, 1, height / 10.0f);
 
         // Default cog speed
-        foreach (Cog cog in cogs)
-            cog.rotateSpeed = 20.0f;
+        foreach (CogRotation cogRotation in cogs)
+            cogRotation.rotateSpeed = 20.0f;
 
         // When main menu is showing
         if (uiScreenTitle.gameObject.activeInHierarchy) {
@@ -72,8 +72,8 @@ public class GameController : MonoBehaviour {
                 spawner.spawnWait = 1.0f + (1.0f * (gameTimeremaining / 120.0f));
                 foreach (Belt belt in belts)
                     belt.speed = 7.0f - (gameTimeremaining / 20.0f);
-                foreach (Cog cog in cogs)
-                    cog.rotateSpeed = 600.0f - (300.0f * (gameTimeremaining / 120.0f));
+                foreach (CogRotation cogRotation in cogs)
+                    cogRotation.rotateSpeed = 600.0f - (300.0f * (gameTimeremaining / 120.0f));
 
                 if (!gameAccessible) 
                     audioSourceSoundtrack.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / 120.0f)), 0.0f, 0.5f);
