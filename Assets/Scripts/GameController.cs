@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
     public TextMeshProUGUI uiScreenGameDetails;
     public TextMeshProUGUI uiScreenTitleHighscores;
     public Image uiScreenOutro;
+    public Transform gameBackground;
 
     public float gameTimeremaining;
     public static int gameScore;
@@ -21,7 +22,7 @@ public class GameController : MonoBehaviour {
     public Hooks hooks;
     public Spawner spawner;
     Belt[] belts;
-    Cog[] cogs;
+    CogRotation[] cogs;
 
     public AudioSource audioSourceSoundtrack;
 
@@ -31,26 +32,36 @@ public class GameController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         belts = FindObjectsOfType<Belt>();
-        cogs = FindObjectsOfType<Cog>();
+        cogs = FindObjectsOfType<CogRotation>();
         gameScoreRecords = new int[3];
     }
 
     // Update is called once per frame
     void Update() {
+        // Intro skip
         if (Input.GetKeyDown("space")) {
             GetComponent<Animation>().Stop();
             uiScreenIntro.gameObject.SetActive(false);
         }
 
-        foreach (Cog cog in cogs)
-            cog.rotateSpeed = 20.0f;
+        // Scale background plane to 
+        float height = Camera.main.orthographicSize * 2.0f;
+        float width = height * Screen.width / Screen.height;
+        gameBackground.localScale = new Vector3(width / 10.0f, 1, height / 10.0f);
 
+        // Default cog speed
+        foreach (CogRotation cogRotation in cogs)
+            cogRotation.rotateSpeed = 20.0f;
+
+        // When main menu is showing
         if (uiScreenTitle.gameObject.activeInHierarchy) {
             string highscores = "1) " + gameScoreRecords[0].ToString() + "\n2) " +
                 gameScoreRecords[1].ToString() + "\n3) " + gameScoreRecords[2].ToString();
             uiScreenTitleHighscores.text = highscores;
             Cursor.visible = true;
         }
+
+        // When game UI is showing
         if (uiScreenGame.gameObject.activeInHierarchy) {
             Cursor.visible = false;
             gameTimeremaining -= Time.deltaTime;
@@ -61,8 +72,8 @@ public class GameController : MonoBehaviour {
                 spawner.spawnWait = 1.0f + (1.0f * (gameTimeremaining / 120.0f));
                 foreach (Belt belt in belts)
                     belt.speed = 7.0f - (gameTimeremaining / 20.0f);
-                foreach (Cog cog in cogs)
-                    cog.rotateSpeed = 600.0f - (300.0f * (gameTimeremaining / 120.0f));
+                foreach (CogRotation cogRotation in cogs)
+                    cogRotation.rotateSpeed = 600.0f - (300.0f * (gameTimeremaining / 120.0f));
 
                 if (!gameAccessible) 
                     audioSourceSoundtrack.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / 120.0f)), 0.0f, 0.5f);
@@ -70,7 +81,9 @@ public class GameController : MonoBehaviour {
                 uiScreenGameDetails.text = "ETA until Earth: " +
                     Mathf.RoundToInt(gameTimeremaining).ToString() + " seconds";//\nScore: " + gameScore.ToString();
             }
+            // When game has finished
             else {
+                // Is the outro image completely showing
                 if (uiScreenOutro.color.a == 1) {
                     // Reset game
                     claw.SetActive(false);
@@ -83,6 +96,7 @@ public class GameController : MonoBehaviour {
                     audioSourceSoundtrack.pitch = 1.0f;
                     uiScreenTitle.gameObject.SetActive(true);
                 }
+                // Reset game UI when it's animation is done
                 if (!uiScreenGame.GetComponent<Animation>().isPlaying)
                     uiScreenGame.gameObject.SetActive(false);
             }

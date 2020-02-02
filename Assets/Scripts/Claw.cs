@@ -15,7 +15,7 @@ public class Claw : MonoBehaviour {
 
     public void Move() {
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        target.x = Mathf.Clamp(target.x, -11, 11);
+        target.x = Mathf.Clamp(target.x, -12, 12);
         target.y = Mathf.Clamp(target.y, -2.5f, 8.3f);
         target.z = transform.position.z;
         transform.position = target;
@@ -40,6 +40,8 @@ public class Claw : MonoBehaviour {
             }
         }
         // Drop body part
+        if (holding != null)
+            Debug.DrawRay(holding.transform.position, Vector3.forward * 5.0f, Color.blue);
         if (Input.GetMouseButtonUp(0) && holding != null) {
             RaycastHit hit;
             // If body part is above a template

@@ -6,6 +6,7 @@ public class Hooks : MonoBehaviour {
 
     public GameObject template;
     public Transform bodypartFolder;
+    public Transform outroFolder;
     public float spawnWait;
     public float speed = 1.0f;
 
@@ -17,7 +18,7 @@ public class Hooks : MonoBehaviour {
     }
 
     private void OnEnable() {
-        Instantiate(template, new Vector3(14, 5, 3), Quaternion.Euler(Vector3.zero), transform);
+        Instantiate(template, new Vector3(13, 5, -3.75f), Quaternion.Euler(Vector3.zero), transform);
         spawnWaited = 0;
     }
 
@@ -26,14 +27,14 @@ public class Hooks : MonoBehaviour {
         spawnWaited += Time.deltaTime;
 
         if (spawnWaited >= spawnWait) {
-            Instantiate(template, new Vector3(14, 5, 3), Quaternion.Euler(Vector3.zero), transform);
+            Instantiate(template, new Vector3(13, 5, -3.75f), Quaternion.Euler(Vector3.zero), transform);
             spawnWaited = 0;
         }
 
         foreach (Transform child in transform) {
             child.position += Vector3.left * Time.deltaTime * speed;
             // When the template is at the end of the rail
-            if (child.position.x < -8) {
+            if (child.position.x < -9.5f) {
                 // Count how many body parts have been added to the template
                 int count = 0;
                 foreach(Transform bodypart in child) {
@@ -52,18 +53,30 @@ public class Hooks : MonoBehaviour {
                         }
                     }
                 }
+                // If the body has been completed
                 else {
+                    // Calculate score 
                     int correct = 0;
                     foreach (Transform bodypart in child) {
                         if (bodypart.childCount > 0) { 
                             if (bodypart.name == bodypart.GetChild(0).name.Split('(')[0])
                                 correct++;
-                            bodypart.GetChild(0).name = "Counted";
+                            // Change name so that this loop doesn't happen again
+                            bodypart.GetChild(0).name = "Counted"; 
                         }
                     }
                     if (correct == 6)
                         correct += 4;
                     GameController.gameScore += correct;
+                    // If it's now moved off screen
+                    if (child.position.x < -14.0f) {
+                        foreach (Transform spot in outroFolder) {
+                            if (spot.childCount == 0) {
+                                child.parent = spot;
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
