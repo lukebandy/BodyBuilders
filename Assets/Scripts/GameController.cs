@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
     public TextMeshProUGUI uiScreenGameDetails;
     public TextMeshProUGUI uiScreenTitleHighscores;
     public Image uiScreenOutro;
+    public Transform gameBackground;
 
     public float gameTimeremaining;
     public static int gameScore;
@@ -37,20 +38,30 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        // Intro skip
         if (Input.GetKeyDown("space")) {
             GetComponent<Animation>().Stop();
             uiScreenIntro.gameObject.SetActive(false);
         }
 
+        // Scale background plane to 
+        float height = Camera.main.orthographicSize * 2.0f;
+        float width = height * Screen.width / Screen.height;
+        gameBackground.localScale = new Vector3(width / 10.0f, 1, height / 10.0f);
+
+        // Default cog speed
         foreach (Cog cog in cogs)
             cog.rotateSpeed = 20.0f;
 
+        // When main menu is showing
         if (uiScreenTitle.gameObject.activeInHierarchy) {
             string highscores = "1) " + gameScoreRecords[0].ToString() + "\n2) " +
                 gameScoreRecords[1].ToString() + "\n3) " + gameScoreRecords[2].ToString();
             uiScreenTitleHighscores.text = highscores;
             Cursor.visible = true;
         }
+
+        // When game UI is showing
         if (uiScreenGame.gameObject.activeInHierarchy) {
             Cursor.visible = false;
             gameTimeremaining -= Time.deltaTime;
@@ -70,7 +81,9 @@ public class GameController : MonoBehaviour {
                 uiScreenGameDetails.text = "ETA until Earth: " +
                     Mathf.RoundToInt(gameTimeremaining).ToString() + " seconds";//\nScore: " + gameScore.ToString();
             }
+            // When game has finished
             else {
+                // Is the outro image completely showing
                 if (uiScreenOutro.color.a == 1) {
                     // Reset game
                     claw.SetActive(false);
@@ -83,6 +96,7 @@ public class GameController : MonoBehaviour {
                     audioSourceSoundtrack.pitch = 1.0f;
                     uiScreenTitle.gameObject.SetActive(true);
                 }
+                // Reset game UI when it's animation is done
                 if (!uiScreenGame.GetComponent<Animation>().isPlaying)
                     uiScreenGame.gameObject.SetActive(false);
             }

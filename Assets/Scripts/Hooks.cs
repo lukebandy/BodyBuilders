@@ -6,6 +6,7 @@ public class Hooks : MonoBehaviour {
 
     public GameObject template;
     public Transform bodypartFolder;
+    public Transform outroFolder;
     public float spawnWait;
     public float speed = 1.0f;
 
@@ -52,18 +53,30 @@ public class Hooks : MonoBehaviour {
                         }
                     }
                 }
+                // If the body has been completed
                 else {
+                    // Calculate score 
                     int correct = 0;
                     foreach (Transform bodypart in child) {
                         if (bodypart.childCount > 0) { 
                             if (bodypart.name == bodypart.GetChild(0).name.Split('(')[0])
                                 correct++;
-                            bodypart.GetChild(0).name = "Counted";
+                            // Change name so that this loop doesn't happen again
+                            bodypart.GetChild(0).name = "Counted"; 
                         }
                     }
                     if (correct == 6)
                         correct += 4;
                     GameController.gameScore += correct;
+                    // If it's now moved off screen
+                    if (child.position.x < -16.0f) {
+                        foreach (Transform spot in outroFolder) {
+                            if (spot.childCount == 0) {
+                                child.parent = spot;
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
