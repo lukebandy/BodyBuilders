@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
     public Hooks hooks;
     public Spawner spawner;
     Belt[] belts;
+    Cog[] cogs;
 
     public AudioSource audioSourceSoundtrack;
 
@@ -27,11 +28,15 @@ public class GameController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         belts = FindObjectsOfType<Belt>();
+        cogs = FindObjectsOfType<Cog>();
         gameScoreRecords = new int[3];
     }
 
     // Update is called once per frame
     void Update() {
+        foreach (Cog cog in cogs)
+            cog.rotateSpeed = 20.0f;
+
         if (uiScreenTitle.gameObject.activeInHierarchy) {
             string highscores = "1) " + gameScoreRecords[0].ToString() + "\n2) " +
                 gameScoreRecords[1].ToString() + "\n3) " + gameScoreRecords[2].ToString();
@@ -48,32 +53,16 @@ public class GameController : MonoBehaviour {
                 spawner.spawnWait = 1.0f + (1.0f * (gameTimeremaining / 120.0f));
                 foreach (Belt belt in belts)
                     belt.speed = 7.0f - (gameTimeremaining / 20.0f);
+                foreach (Cog cog in cogs)
+                    cog.rotateSpeed = 20.0f;
 
                 if (!gameAccessible) 
                     audioSourceSoundtrack.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / 120.0f)), 0.0f, 0.5f);
 
-                uiScreenGameDetails.text = "ETA until Earth: " + 
-                    Mathf.RoundToInt(gameTimeremaining).ToString() + " seconds\nScore: " + gameScore.ToString();
+                uiScreenGameDetails.text = "ETA until Earth: " +
+                    Mathf.RoundToInt(gameTimeremaining).ToString() + " seconds";//\nScore: " + gameScore.ToString();
             }
             else {
-                // Change high scores
-                if (gameScore > gameScoreRecords[0]) {
-                    gameScoreRecords[2] = gameScoreRecords[1];
-                    gameScoreRecords[1] = gameScoreRecords[0];
-                    gameScoreRecords[0] = gameScore;
-                }
-                else if (gameScore > gameScoreRecords[1]) {
-                    gameScoreRecords[2] = gameScoreRecords[1];
-                    gameScoreRecords[1] = gameScore;
-                }
-                else if (gameScore > gameScoreRecords[2]) {
-                    gameScoreRecords[2] = gameScore;
-                }
-
-                // Change UI
-                uiScreenTitle.gameObject.SetActive(true);
-                uiScreenGame.gameObject.SetActive(false);
-
                 // Reset game
                 claw.SetActive(false);
                 spawner.gameObject.SetActive(false);
