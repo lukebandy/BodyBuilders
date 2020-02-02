@@ -7577,6 +7577,7 @@ MonoBehaviour:
   hooks: {fileID: 1861745937}
   spawner: {fileID: 292263261}
   audioSourceSoundtrack: {fileID: 2095106939}
+  audioSourceIntro: {fileID: 443732909}
   gameAccessible: 0
 --- !u!82 &2095106939
 AudioSource:

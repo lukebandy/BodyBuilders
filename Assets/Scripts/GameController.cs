@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour {
     CogRotation[] cogs;
 
     public AudioSource audioSourceSoundtrack;
+    public AudioSource audioSourceIntro;
 
     public bool gameAccessible;
     private int[] gameScoreRecords;
@@ -45,6 +46,7 @@ public class GameController : MonoBehaviour {
         if (Input.GetKeyDown("space")) {
             GetComponent<Animation>().Stop();
             uiScreenIntro.gameObject.SetActive(false);
+            audioSourceIntro.volume = 1.0f;
         }
 
         // Scale background plane to 
