@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour {
                 foreach (Belt belt in belts)
                     belt.speed = 7.0f - (gameTimeremaining / 20.0f);
                 foreach (Cog cog in cogs)
-                    cog.rotateSpeed = 20.0f;
+                    cog.rotateSpeed = 600.0f - (300.0f * (gameTimeremaining / 120.0f));
 
                 if (!gameAccessible) 
                     audioSourceSoundtrack.pitch = 1.5f - Mathf.Clamp((2f * (gameTimeremaining / 120.0f)), 0.0f, 0.5f);
