@@ -11,7 +11,6 @@ public class GameController : MonoBehaviour {
     public Canvas uiScreenGame;
     public TextMeshProUGUI uiScreenGameDetails;
     public TextMeshProUGUI uiScreenTitleHighscores;
-    public Image uiScreenOutro;
     public Transform gameBackground;
     public GameObject outroScene;
 
@@ -19,6 +18,8 @@ public class GameController : MonoBehaviour {
     public static int gameScore;
     public Transform bodypartFolder;
     private float gameTimeLength = 90.0f;
+
+    public Transform outroBodies;
 
     public GameObject claw;
     public Hooks hooks;
@@ -120,6 +121,11 @@ public class GameController : MonoBehaviour {
         gameTimeremaining = gameTimeLength;
 
         outroScene.SetActive(true);
+
+        foreach (Transform placeholder in outroBodies) {
+            foreach (Transform child in placeholder)
+                Destroy(child);
+        }
     }
 
     public void SetAccessability(bool value) {

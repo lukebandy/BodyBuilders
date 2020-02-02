@@ -74,6 +74,7 @@ public class Hooks : MonoBehaviour {
                             if (spot.childCount == 0) {
                                 child.parent = spot;
                                 child.localPosition = Vector3.zero;
+                                child.GetChild(6).gameObject.SetActive(false);
                                 break;
                             }
                         }
