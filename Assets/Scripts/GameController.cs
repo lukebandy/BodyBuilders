@@ -127,6 +127,7 @@ public class GameController : MonoBehaviour {
         gameTimeremaining = gameTimeLength;
 
         outroScene.SetActive(true);
+        outroScene.GetComponent<Animation>().enabled = true;
 
         foreach (Transform placeholder in outroBodies) {
             foreach (Transform child in placeholder)
