@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -369,11 +369,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 67374653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1001 &104266144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,11 +464,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 104266146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1 &158269797
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,10 +940,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 303583932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1001 &397284237
 PrefabInstance:
@@ -1385,11 +1385,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 548083527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1001 &624976378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1480,11 +1480,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 624976380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1 &665276999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,11 +1730,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 682137389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1 &698953739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,11 +1932,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 701990792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1 &703677994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3483051328485856435, guid: 5c14a9280d19741a2b1960d3596cc1c1,
@@ -2124,11 +2124,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 731085212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1001 &744234237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2219,10 +2219,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 744234239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1001 &754515983
 PrefabInstance:
@@ -2314,10 +2314,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 754515985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1 &779711088
 GameObject:
@@ -2518,10 +2518,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 888575041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1001 &897342208
 PrefabInstance:
@@ -2613,11 +2613,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 897342210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1 &946924405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,11 +2946,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091272228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1001 &1098117540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3041,11 +3041,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1098117542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1 &1108567942
 GameObject:
   m_ObjectHideFlags: 0
@@ -3662,10 +3662,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1306726512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1 &1328389052
 GameObject:
@@ -3917,10 +3917,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1343786226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1001 &1360112954
 PrefabInstance:
@@ -4303,11 +4303,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675388769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1 &1676202457
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,10 +4505,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1678523724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1001 &1752701594
 PrefabInstance:
@@ -4600,10 +4600,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1752701596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1 &1861745935
 GameObject:
@@ -4743,10 +4743,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1878242019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1 &1891992715
 GameObject:
@@ -5066,10 +5066,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1990928195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1001 &1995834512
 PrefabInstance:
@@ -5161,10 +5161,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1995834514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
 --- !u!1 &2010353624
 GameObject:
@@ -5415,11 +5415,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2012517780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
-  rotateClockwise: 0
+  rotateSpeed: 0
+  rotateClockwise: 1
 --- !u!1 &2058055872
 GameObject:
   m_ObjectHideFlags: 0
@@ -5628,11 +5628,14 @@ MonoBehaviour:
   uiScreenGame: {fileID: 1271552886}
   uiScreenGameDetails: {fileID: 1281595733}
   uiScreenTitleHighscores: {fileID: 2010353626}
+  uiScreenOutro: {fileID: 1891992717}
   gameTimeremaining: 0
+  bodypartFolder: {fileID: 0}
   claw: {fileID: 261849856}
   hooks: {fileID: 1861745937}
   spawner: {fileID: 292263261}
   audioSourceSoundtrack: {fileID: 2095106939}
+  gameAccessible: 0
 --- !u!82 &2095106939
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5835,8 +5838,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2124203903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3320ab0bc1a2874489a1d196fdba3d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7002a7d579b054abf8002d9566589ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 300
+  rotateSpeed: 0
   rotateClockwise: 1
