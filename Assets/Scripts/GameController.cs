@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour {
             if (gameTimeremaining > 0) {
                 hooks.spawnWait = 3.0f + (17.0f * (gameTimeremaining / gameTimeLength));
                 hooks.speed = 2.5f - (1.9f * (gameTimeremaining / gameTimeLength));
-                spawner.spawnWait = 0.7f + (0.8f * (gameTimeremaining / gameTimeLength));
+                spawner.spawnWait = 0.5f + (1.0f * (gameTimeremaining / gameTimeLength));
                 foreach (Belt belt in belts)
                     belt.speed = 7.0f - (gameTimeremaining / 20.0f);
                 foreach (CogRotation cogRotation in cogs)
@@ -130,7 +130,7 @@ public class GameController : MonoBehaviour {
 
         foreach (Transform placeholder in outroBodies) {
             foreach (Transform child in placeholder)
-                Destroy(child);
+                Destroy(child.gameObject);
         }
     }
 
