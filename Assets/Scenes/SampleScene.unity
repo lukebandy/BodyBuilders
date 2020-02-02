@@ -534,7 +534,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4026531839
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3303,7 +3303,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!82 &1271552887
 AudioSource:
@@ -4026,7 +4026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1496359537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5630,7 +5630,7 @@ MonoBehaviour:
   uiScreenTitleHighscores: {fileID: 2010353626}
   uiScreenOutro: {fileID: 1891992717}
   gameTimeremaining: 0
-  bodypartFolder: {fileID: 0}
+  bodypartFolder: {fileID: 1328389053}
   claw: {fileID: 261849856}
   hooks: {fileID: 1861745937}
   spawner: {fileID: 292263261}

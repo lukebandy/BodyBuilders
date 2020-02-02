@@ -79,12 +79,14 @@ public class GameController : MonoBehaviour {
                         Destroy(template.gameObject);
                     foreach (Transform bodypart in bodypartFolder)
                         Destroy(bodypart.gameObject);
+                    hooks.gameObject.SetActive(false);
                     audioSourceSoundtrack.pitch = 1.0f;
                     uiScreenTitle.gameObject.SetActive(true);
                 }
+                if (!uiScreenGame.GetComponent<Animation>().isPlaying)
+                    uiScreenGame.gameObject.SetActive(false);
             }
         }
-        Debug.Log(uiScreenOutro.color.a);
     }
 
     public void UIStart() {
