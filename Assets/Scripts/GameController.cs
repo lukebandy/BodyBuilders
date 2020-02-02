@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     public TextMeshProUGUI uiScreenTitleHighscores;
     public Image uiScreenOutro;
     public Transform gameBackground;
+    public GameObject outroScene;
 
     public float gameTimeremaining;
     public static int gameScore;
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour {
         float height = Camera.main.orthographicSize * 2.0f;
         float width = height * Screen.width / Screen.height;
         gameBackground.localScale = new Vector3(width / 10.0f, 1, height / 10.0f);
+        outroScene.transform.localScale = new Vector3(width / 10.0f, 1, height / 10.0f);
 
         // Default cog speed
         foreach (CogRotation cogRotation in cogs)
@@ -85,7 +87,7 @@ public class GameController : MonoBehaviour {
             // When game has finished
             else {
                 // Is the outro image completely showing
-                if (uiScreenOutro.color.a == 1) {
+                if (outroScene.GetComponent<MeshRenderer>().enabled) {
                     // Reset game
                     claw.SetActive(false);
                     spawner.gameObject.SetActive(false);
@@ -95,11 +97,13 @@ public class GameController : MonoBehaviour {
                         Destroy(bodypart.gameObject);
                     hooks.gameObject.SetActive(false);
                     audioSourceSoundtrack.pitch = 1.0f;
-                    uiScreenTitle.gameObject.SetActive(true);
                 }
                 // Reset game UI when it's animation is done
-                if (!uiScreenGame.GetComponent<Animation>().isPlaying)
+                if (!outroScene.GetComponent<Animation>().enabled) {
+                    uiScreenTitle.gameObject.SetActive(true);
+                    outroScene.gameObject.SetActive(false);
                     uiScreenGame.gameObject.SetActive(false);
+                }
             }
         }
     }
@@ -114,6 +118,8 @@ public class GameController : MonoBehaviour {
         hooks.gameObject.SetActive(true);
 
         gameTimeremaining = gameTimeLength;
+
+        outroScene.SetActive(true);
     }
 
     public void SetAccessability(bool value) {

@@ -73,6 +73,7 @@ public class Hooks : MonoBehaviour {
                         foreach (Transform spot in outroFolder) {
                             if (spot.childCount == 0) {
                                 child.parent = spot;
+                                child.localPosition = Vector3.zero;
                                 break;
                             }
                         }
