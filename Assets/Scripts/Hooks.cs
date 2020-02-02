@@ -69,12 +69,13 @@ public class Hooks : MonoBehaviour {
                         correct += 4;
                     GameController.gameScore += correct;
                     // If it's now moved off screen
-                    if (child.position.x < -14.0f) {
+                    if (child.position.x < -15.0f) {
                         foreach (Transform spot in outroFolder) {
                             if (spot.childCount == 0) {
                                 child.parent = spot;
                                 child.localPosition = Vector3.zero;
                                 child.GetChild(6).gameObject.SetActive(false);
+                                child.localScale = new Vector3(0.8f, 0.8f, 0.8f);
                                 break;
                             }
                         }
